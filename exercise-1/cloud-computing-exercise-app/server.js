@@ -31,7 +31,6 @@ app.get('/', function homepage(req, res) {
 /*
  * JSON API Endpoints
  */
-
 app.get('/api', (req, res) => {
   // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
   res.json({
@@ -43,20 +42,23 @@ app.get('/api', (req, res) => {
       {method: 'GET', path: '/api/profile', description: 'Data about me'},
       {method: 'GET', path: '/api/books/', description: 'Get All books information'},
       // TODO: Write other API end-points description here like above
+      {method: 'POST', path: '/api/books/', description: 'Add a book information into database'},
+      {method: 'PUT', path: '/api/books/:id', description: 'Update a book information based upon the specified ID'},
+      {method: 'DELETE', path: '/api/books/:id', description: 'Delete a book based upon the specified ID'},
     ]
   })
 });
 // TODO:  Fill the values
 app.get('/api/profile', (req, res) => {
   res.json({
-    'name': '',
-    'homeCountry': '',
-    'degreeProgram': '',//informatics or CSE.. etc
-    'email': '',
+    'name': 'Obi-Wan Kenobi',
+    'homeCountry': 'Stewjon',
+    'degreeProgram': 'Jedi',//informatics or CSE.. etc
+    'email': 'obiwan.kenobi@jedi.edu.de',
     'deployedURLLink': '',//leave this blank for the first exercise
     'apiDocumentationURL': '', //leave this also blank for the first exercise
-    'currentCity': '',
-    'hobbies': []
+    'currentCity': 'Berlin',
+    'hobbies': ['cloud computing', 'deep learning', 'spaceships', 'force', 'trainer']
 
   })
 });
@@ -79,7 +81,6 @@ app.get('/api/books/', (req, res) => {
  * Add a book information into database
  */
 app.post('/api/books/', (req, res) => {
-
   /*
    * New Book information in req.body
    */
@@ -91,7 +92,11 @@ app.post('/api/books/', (req, res) => {
   /*
    * return the new book information object as json
    */
-  var newBook = {};
+  /*const data = {
+    title: title, author: author, releaseDate: releaseDate,
+    genre: genre, rating: rating, language: language
+  };*/
+  var newBook = db.books.create(req.body);
   res.json(newBook);
 });
 
@@ -112,7 +117,7 @@ app.put('/api/books/:id', (req, res) => {
   /*
    * Send the updated book information as a JSON object
    */
-  var updatedBookInfo = {};
+  var updatedBookInfo = db.books.findByIdAndUpdate(bookId, bookNewData).exec();
   res.json(updatedBookInfo);
 });
 /*
@@ -130,7 +135,7 @@ app.delete('/api/books/:id', (req, res) => {
   /*
    * Send the deleted book information as a JSON object
    */
-  var deletedBook = {};
+  var deletedBook = db.books.findByIdAndDelete(bookId).exec();
   res.json(deletedBook);
 });
 
