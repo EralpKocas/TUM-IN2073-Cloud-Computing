@@ -16,6 +16,6 @@ module.exports = function (options) {
                 bookPrice = mockData[i].product_price;
             }
         }
-        done(null, bookPrice);
+        done(null, { result: bookPrice });
     }
 }

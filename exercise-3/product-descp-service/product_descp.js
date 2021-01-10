@@ -19,7 +19,7 @@ module.exports = function (options) {
                 bookURL = mockData[i].product_url;
             }
         }
-        done(null, bookURL);
+        done(null, { result: bookURL });
     }
 
     function productName(args, done)
@@ -33,6 +33,6 @@ module.exports = function (options) {
                 bookName = mockData[i].product_name;
             }
         }
-        done(null, bookName);
+        done(null, { result: bookName });
     }
 }
