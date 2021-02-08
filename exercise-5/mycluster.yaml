@@ -3,7 +3,7 @@ controller:
 whisk:
   ingress:
     type: NodePort
-    apiHostName: <CLUSTER_IP>
+    apiHostName: 10.132.0.2
     apiHostPort: 31001
 k8s:
   persistence:
