@@ -3,7 +3,7 @@
 function main(params) {
     // eslint-disable-next-line global-require, import/no-extraneous-dependencies
     const options = {
-        apihost: ':31001',
+        apihost: '10.132.0.2:31001',
         api_key: '23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP',
         ignore_certs: true
     }
@@ -18,7 +18,7 @@ function main(params) {
                 "ignore_certs": true
             }
         },
-        "name": "eralp",
+        "name": "group114",
         "product_id": 2,
         "mongo_host_ip": "35.225.168.231",
         "db": "ccs",
