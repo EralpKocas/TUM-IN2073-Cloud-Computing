@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: product-descp-deployment
   labels:
-    app: hello-world
+    app: product-descp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: product-descp
   template:
     metadata:
       labels:
-        app: hello-world
+        app: product-descp
     spec:
       containers:
-        - name: hello-world
-          image: eralpkocas/microservice:hello
+        - name: product-descp-service
+          image: eralpkocas/microservice:productdescp
           ports:
-            - containerPort: 9001
+            - containerPort: 9002

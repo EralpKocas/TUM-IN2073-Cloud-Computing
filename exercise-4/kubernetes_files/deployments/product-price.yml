@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: product-price-deployment
   labels:
-    app: hello-world
+    app: product-price
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: product-price
   template:
     metadata:
       labels:
-        app: hello-world
+        app: product-price
     spec:
       containers:
-        - name: hello-world
-          image: eralpkocas/microservice:hello
+        - name: product-price
+          image: eralpkocas/microservice:productprice
           ports:
-            - containerPort: 9001
+            - containerPort: 9003
