@@ -3,8 +3,10 @@
  * Cloud Computing Cource Exercises
  * Exercise 3
  *  Build A microservice
- * Developed by 'Write Group Name'
+ * Developed by 'Group 86'
  * Write Names of All Members
+ * Kazım Ayberk Tecimer
+ * Halil Eralp Koçaş
  */
 // =============================================================================
 /**
@@ -46,7 +48,7 @@ router.get('/', function(req, res) {
 /**
  * Exercise 4 Route
  */
- router.get('/api/exercise4', function(req, res) {
+ router.route('/exercise4', function(req, res) {
     res.json({ message: 'group 86 application deployed using kubernetes'});
 });
 
