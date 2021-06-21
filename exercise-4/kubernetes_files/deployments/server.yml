@@ -3,19 +3,20 @@ kind: Deployment
 metadata:
   name: server-deployment
   labels:
-    app: hello-world
+    app: server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: server
   template:
     metadata:
       labels:
-        app: hello-world
+        app: server
     spec:
+
       containers:
-        - name: hello-world
-          image: eralpkocas/microservice:hello
+        - name: server
+          image: eralpkocas/microservice:server
           ports:
             - containerPort: 3000
