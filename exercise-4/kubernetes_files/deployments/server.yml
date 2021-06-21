@@ -14,9 +14,10 @@ spec:
       labels:
         app: server
     spec:
-
+      terminationGracePeriodSeconds: 30
       containers:
         - name: server
           image: eralpkocas/microservice:server
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 3000
